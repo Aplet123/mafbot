@@ -1,0 +1,8 @@
+{
+  "apps" : [{
+    "name"        : "mafbot",
+    "script"      : "src/start.js",
+    "node_args"   : "--harmony --harmony_shipping",
+    "args"        : "--color"
+  }]
+}
