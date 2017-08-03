@@ -22,4 +22,11 @@ class Window {
     hardEdit (message) {
         this.message.edit(message);
     }
+    remove () {
+        this.message.delete(0);
+        this.message = null;
+        this.messages = null;
+        this.displayedMessages = null;
+        this.messageLimit = null;
+    }
 }

@@ -47,7 +47,6 @@ var Window = function(spec){
 		this.msgs = [];
 		this.screen.edit("```md\n\n```");
 	}
-
 	return w;
 }
 

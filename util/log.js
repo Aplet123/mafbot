@@ -1,6 +1,6 @@
 const chalk = require("chalk");
 module.exports = function (fileName) {
-	fileName = fileName.match(/[^\\/]+$/ig)[0].replace(/\.js$/ig, "");
+	fileName = fileName.match(/[^\\/]+$/ig)[0].replace(/\.\w+$/ig, "");
 	return {
 		fileLog (text) {
 			console.log(`[${chalk.green.bold(fileName)}] ${text}`);
