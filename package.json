@@ -1,0 +1,28 @@
+{
+  "name": "mafbot",
+  "version": "0.0.1",
+  "description": "A bot to play mafia.",
+  "main": "src/start.js",
+  "scripts": {
+    "test": "echo \"Test successful.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Logo121/mafbot"
+  },
+  "keywords": [
+    "discord",
+    "mafia",
+    "bot"
+  ],
+  "author": "Logo121",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Logo121/mafbot/issues"
+  },
+  "homepage": "https://github.com/Logo121/mafbot",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "chalk": "^1.1.3"
+  }
+}
