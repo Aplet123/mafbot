@@ -14,6 +14,13 @@ class Game extends EventEmitter {
         this.players.set(nick, user);
         this.emit("playerJoin", user, nick, this.players.size);
     }
+    leave (user) {
+        var nick = this.players.findKey(v => v.id === user.id);
+        if (! this.playing) {
+            this.players.delete(nick);
+        }
+        this.emit("playerLeave", user, nick, this.players.size);
+    }
     checkNick (nick) {
         return this.players.has(nick);
     }
@@ -30,6 +37,9 @@ class Game extends EventEmitter {
     end () {
         this.playing = false;
         this.emit("end", this.players, this.players.size);
+    }
+    getUser (user) {
+        return this.players.find(v => v.id === user.id);
     }
 }
 

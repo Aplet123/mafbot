@@ -1,5 +1,4 @@
 const prefix = require("../constants/info.json").prefix;
-const help = require("./help.js");
 module.exports = {
     name: "restart",
     description: "Restarts the bot",

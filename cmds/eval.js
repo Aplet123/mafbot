@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const prefix = require("../constants/info.json").prefix;
+const help = require("./adminhelp.js");
 const _ = require("lodash");
 const { fileLog, fileError } = require("../util/log.js")(__filename);
 Discord.RichEmbed.prototype.oldSetDescription = function(text) {
@@ -58,9 +59,13 @@ module.exports = {
     name: "eval",
     description: "Evaluate a JavaScript expression",
     syntax: `${prefix}eval [JavaScript expression]`,
-    regex: /^eval\s{1,4}[^]+$/gi,
+    regex: /^eval(\s{1,4}[^]+)?$/gi,
     group: 1,
     process (message, trimmed) {
+        if (trimmed.match(/^eval$/gi)) {
+            help.process(message, "help eval");
+            return;
+        }
         var query = trimmed.match(/^eval\s{1,4}([^]+)$/i)[1];
         var embed = new Discord.RichEmbed();
         var util = require("util");

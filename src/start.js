@@ -22,6 +22,7 @@ process.on("unhandledRejection", (rej, p)=>{
         }
     }
 });
+require("../constants/getBot.js")(bot);
 require("./bot.js")(bot);
 bot.login(token).then (v => {
     require("./ready.js")(bot);
