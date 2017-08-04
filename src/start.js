@@ -24,7 +24,7 @@ process.on("unhandledRejection", (rej, p)=>{
 });
 require("./bot.js")(bot);
 bot.login(token).then (v => {
-    fileLog(`Ready and connected as ${bot.user.tag} (ID: ${bot.user.id})`);
+    require("./ready.js")(bot);
 }).catch (err => {
     fileError(err);
 });

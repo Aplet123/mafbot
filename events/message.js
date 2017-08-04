@@ -15,7 +15,7 @@ module.exports = function (message) {
     if (message.content.match(prefix)) {
         var msgContent = message.content.replace(prefix, "");
         for (var i = 0; i < cmds.length; i ++) {
-            if (msgContent.match (cmds[i].regex) && cmds[i].group <= 0) {
+            if (msgContent.match (cmds[i].regex) && cmds[i].group <= 0) { // group 0 and lower are commands open to everyone, group 1 is admins only
                 cmds[i].process (message, msgContent);
                 break;
             } else if (msgContent.match (cmds[i].regex) && cmds[i].group == 1 && admins.includes(message.author.id)) {

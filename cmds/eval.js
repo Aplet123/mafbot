@@ -86,10 +86,10 @@ ${query}
             embed.setColor(0xffff00);
         }
         embed.addField("Result:", `\`\`\`js
-${(typeof result == "string") ? result.replace(new RegExp(_.escapeRegExp(message.client.user.email), "gi"), "this.awesome.email@sham.wow").replace(new RegExp(_.escapeRegExp(message.client.token), "gi"), "aBcD.eF.gHiJ") : result}
+${(typeof result == "string") ? result.replace(new RegExp(_.escapeRegExp(message.client.user.email || "this.awesome.email@sham.wow"), "gi"), "this.awesome.email@sham.wow").replace(new RegExp(_.escapeRegExp(message.client.token), "gi"), "aBcD.eF.gHiJ") : result}
 \`\`\``);
         embed.addField("Util:", `\`\`\`js
-${utilResult.replace(new RegExp(_.escapeRegExp(message.client.user.email), "gi"), "this.awesome.email@sham.wow").replace(new RegExp(_.escapeRegExp(message.client.token), "gi"), "aBcD.eF.gHiJ")}
+${utilResult.replace(new RegExp(_.escapeRegExp(message.client.user.email || "this.awesome.email@smam.wow"), "gi"), "this.awesome.email@sham.wow").replace(new RegExp(_.escapeRegExp(message.client.token), "gi"), "aBcD.eF.gHiJ")}
 \`\`\``);
         message.channel.send({
             embed
