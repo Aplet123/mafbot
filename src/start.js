@@ -6,7 +6,13 @@ const bot = new Discord.Client({
     disableEveryone: true
 });
 process.on("exit", function(code) {
-    fileLog(`Exiting process with exit code ${code}.`);
+    if (code == 0) {
+        fileLog(`Exiting process with no problem.`);
+    } else if (code == "restarting") {
+        fileLog(`Restarting bot...`);
+    } else {
+        fileError(`Exiting process with code ${code}.`);
+    }
 });
 process.on("unhandledRejection", (rej, p)=>{
     fileError("Unhandled Rejection:\n"+rej);
