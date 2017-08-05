@@ -6,11 +6,8 @@ module.exports = {
             message.author.send(`You were visited by a pretty lady so you didn't do anything!`);
             return;
         }
-        if (target.healed) {
-            message.author.send(`You attacked ${game.getNick(target)}${target.healed ? " but he was healed." : "."}`);
-        } else {
-            target.attacked = "mafia";
-        }
+        message.author.send(`You attacked ${game.getNick(target)}${target.healed ? " but he was healed." : "."}`);
+        if (!target.healed) target.attacked = "mafia";
     },
     priority: 2,
     immunities: {}
