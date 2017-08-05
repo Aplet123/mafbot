@@ -6,7 +6,7 @@ class Game extends EventEmitter {
         super();
         this.gameWindow = gameWindow;
         this.players = new Storage();
-        this.time = settings.startDay ? 1 : 0; // 0 is night 1, 1 is day 1, 2 is night 2, 3 is day 3 etc.
+        this.time = settings.startDay ? 1 : 0; // 0 is night 1, 1 is day 1, 2 is night 2, 3 is day 2 etc.
         this.voting = settings.majority ? 1 : 0; // 0 is plurality, 1 is majority
         this.playing = false;
     }
