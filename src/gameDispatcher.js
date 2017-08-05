@@ -43,4 +43,9 @@ module.exports = function (game) {
             }, 1000);
         }
     });
+    game.on("playerLeave", function (user, nick, playerCount) {
+        if (playerCount < 5) {
+            clearInterval(timerInterval);
+        }
+    });
 };
