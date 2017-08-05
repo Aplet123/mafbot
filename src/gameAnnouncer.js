@@ -1,7 +1,13 @@
 const prefix = require("../constants/info.json").prefix;
 
 module.exports = function (game) {
-    require("../constants/currentGame.js")(game);
+    if (typeof require("../constants/currentGame.js") == "function") {
+        require("../constants/currentGame.js")(game);
+    } else {
+        for (let i of Object.keys(game)) {
+            require("../constants/currentGame.js")[i] = game[i];
+        }
+    }
     game.gameWindow.add("# Game created! Use " + prefix + "reg to register! #");
     game.on ("playerJoin", function (user, nick, size) {
         game.gameWindow.add(`()[${user.tag} (ID: ${user.id}) has joined the game with the name ${nick}! There are now ${size} players queueing.]()`);
