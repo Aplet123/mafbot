@@ -3,7 +3,8 @@ class Window {
         this.messages = [];
         this.displayedMessages = [];
         this.messageLimit = messageLimit;
-        return channel.send("```md\n\n```").then(v => {
+        this.waitingPromise = channel.send("```md\n\n```");
+        this.waitingPromise.then(v => {
             this.message = v;
         });
     }
@@ -30,3 +31,5 @@ class Window {
         this.messageLimit = null;
     }
 }
+
+module.exports = Window;
