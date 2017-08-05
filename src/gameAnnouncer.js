@@ -17,7 +17,7 @@ module.exports = function (game) {
             game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}. <`);
         } else {
             game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}. There are now ${size} players queueing. <`);
-            if (size < 5) {
+            if (size == 4) {
                 game.gameWindow.add(`< Timer stopped due to not enough players. >`);
             }
         }
