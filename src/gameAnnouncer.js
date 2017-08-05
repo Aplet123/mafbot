@@ -8,9 +8,9 @@ module.exports = function (game) {
     });
     game.on ("playerLeave", function (user, nick, size) {
         if (game.playing) {
-            game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}! <`);
+            game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}. <`);
         } else {
-            game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}! There are now ${size} players queueing. <`);
+            game.gameWindow.add(`> ${user.tag} (ID: ${user.id}) has left the game with the name ${nick}. There are now ${size} players queueing. <`);
         }
     });
     game.on("start", function (players, playerSize) {
