@@ -10,13 +10,13 @@ module.exports = function (game) {
         var muted = guild.roles.get(serverInfo.mutedID);
         players.map(v => guild.member(v).addRole(muted));
         let playerList = new Storage (players);
-        const roles = fs.readdirSync(path.join(__dirname, "..", "roles"));
-        const rls = [];
+        var roles = fs.readdirSync(path.join(__dirname, "..", "roles"));
+        var rls = [];
         for (let name of roles) {
-            rls.push (require(path.join(__dirname, "..", "roles", name)));
+            rls.push(require(path.join(__dirname, "..", "roles", name)));
         }
         for (var i = 0; i < rls.length; i ++) {
-            for (var j = 0; j < rls[i][playerCount - 5]; j ++) {
+            for (var j = 0; j < rls[i].frequencies[playerCount - 5]; j ++) {
                 let newKey = playerList.randomKey();
                 game.players.get(newKey).role = rls[i];
                 playerList.delete(newKey);
