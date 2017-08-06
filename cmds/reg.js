@@ -13,6 +13,8 @@ module.exports = {
             let game = require("../constants/currentGame.js");
             if (game.playing) {
                 message.author.send("Sorry, but the game is already in progress.");
+            } else if (game.players.size >= 16) {
+                message.author.send("Sorry, but the game is full.");
             } else if (trimmed.match(/^reg\s{1,4}\w{5,}$/gi) || trimmed.match(/[^\w\s]/gi)){
                 message.author.send("Your nickname must be 4 or less alphanumerical characters. (0-9, a-z, A-Z, _)");
             } else if (trimmed.match(/^reg\s{1,4}\w{1,4}$/gi)) {

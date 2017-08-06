@@ -2,6 +2,7 @@ const serverInfo = require("../constants/server.secret.json");
 const Storage = require("../struct/Storage.js");
 const fs = require("fs");
 const path = require("path");
+const { fileLog, fileError } = require("../util/log.js")(__filename);
 module.exports = function (game) {
     var timerInterval;
     game.on("start", function (players, playerCount) {
@@ -20,6 +21,7 @@ module.exports = function (game) {
                 let newKey = playerList.randomKey();
                 game.players.get(newKey).role = rls[i];
                 playerList.delete(newKey);
+                game.players.get(newKey).send(`The game has started! Your role is **${rls[i].name}**. Do \`./roles ${rls[i].name}\` for more information.`);
             }
         }
     });

@@ -3,6 +3,14 @@ const prefix = require("../constants/info.json").prefix;
 const help = require("./adminhelp.js");
 const _ = require("lodash");
 const { fileLog, fileError } = require("../util/log.js")(__filename);
+const fs = require("fs");
+const path = require("path");
+const Storage = require("../struct/Storage.js");
+function rep (num, func) {
+    for (var i = 0; i < num; i ++) {
+        func(i);
+    }
+}
 Discord.RichEmbed.prototype.oldSetDescription = function(text) {
     this.description = text;
     return this;
@@ -68,7 +76,13 @@ module.exports = {
         }
         var query = trimmed.match(/^eval\s{1,4}([^]+)$/i)[1];
         var embed = new Discord.RichEmbed();
-        var util = require("util");
+        let util = require("util");
+        let bot = message.client;
+        let me = message.author;
+        function copyMe () {
+            return new Discord.User(bot, me);
+        }
+        let game = require("../constants/currentGame.js");
         embed.setTitle("-=≡EVAL≡=-");
         embed.addField("Query:", `\`\`\`js
 ${query}

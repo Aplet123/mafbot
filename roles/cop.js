@@ -1,4 +1,6 @@
 module.exports = {
+    name: "cop",
+    description: "A police officer that can investigate someone at night, discovering their alignment.",
     frequencies: [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2],
     alignment: "town",
     nightAbility (message, user, target, game) {

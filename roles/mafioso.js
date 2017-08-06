@@ -1,4 +1,6 @@
 module.exports = {
+    name: "mafioso",
+    description: "A member of the mafia that can vote on someone to kill.",
     frequencies: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2],
     alignment: "mafia",
     nightAbility (message, user, target, game) {
